@@ -19,7 +19,7 @@ obstacle_x_change = -4
 obstacle_x = 500
 
 score = 0
-font = pygame.font.SysFont('arcade.ttf',32)
+font = pygame.font.Font('arcade.ttf',32)
 
 def display_score(score):
     display = font.render("Score: "+ str(score), True, (255,255,255))
