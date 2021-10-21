@@ -19,8 +19,11 @@ obstacle_x_change = -4
 obstacle_x = 500
 
 score = 0
+font = pygame.font.SysFont('arcade.ttf',32)
 
-
+def display_score(score):
+    display = font.render("Score: "+ str(score), True, (255,255,255))
+    SCREEN.blit(display, (10,10))
 
 def detect_collision(obstacle_x, obstacle_height, model_y, bottom_obstacle_height,char_y):
     if obstacle_x >= 50 and obstacle_x <= 50+64:
@@ -65,6 +68,7 @@ while playing:
     if obstacle_x <= -10:
         obstacle_x = 500
         obstacle_height = random.randint(200,400)
+        score  += 1
     display_obstacle(obstacle_height)
 
     collided = detect_collision(obstacle_x,obstacle_height,model_y,obstacle_height+200, model_y)
@@ -72,6 +76,7 @@ while playing:
         pygame.quit()
 
     display_model(model_x, model_y)
+    display_score(score)
     pygame.display.update()
 
 
